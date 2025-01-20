@@ -9,7 +9,7 @@
 2. [2. QUẢN LÝ CONTAINER](#2-.-QUẢN-LÝ-CONTAINER)
    - [Chạy một container mới](#Chạy-một-container-mới)
    - [Chạy container ở chế độ nền](#Chạy-container-ở-chế-độ-nền)
-   - [Khởi động/dừng container](#Khởi-động-///-dừng-container)
+   - [Khởi động-dừng container](#Khởi-động---dừng-container)
    - [Khởi động lại container](#Khởi-động-lại-container)
    - [Xóa container](#Xóa-container)
    - [Truy cập vào terminal của container](#Truy-cập-vào-terminal-của-container)
@@ -41,7 +41,7 @@ docker run <image>
 ```
 docker run -d <image>
 ```
-### Khởi động/dừng container
+### Khởi động - dừng container
 ```
 docker start/stop <container>
 ```
