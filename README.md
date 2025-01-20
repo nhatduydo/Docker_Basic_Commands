@@ -13,7 +13,7 @@
    - [Khởi động lại container](#Khởi-động-lại-container)
    - [Xóa container](#Xóa-container)
    - [Truy cập vào terminal của container](#Truy-cập-vào-terminal-của-container)
-3. [LÀM VIỆC VỚI IMAGES](#Làm-việc-với-images)
+3. [3. LÀM VIỆC VỚI IMAGES](#3-.-Làm-việc-với-images)
    - [Xem danh sách images](#Xem-danh-sách-images)
    - [Tải image từ Docker Hub](#Tải-image-từ-Docker-Hub)
    - [Build image từ Dockerfile](#Build-image-từ-Dockerfile)
