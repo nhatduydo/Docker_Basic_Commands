@@ -18,6 +18,23 @@
    - [Tải image từ Docker Hub](#Tải-image-từ-Docker-Hub)
    - [Build image từ Dockerfile](#Build-image-từ-Dockerfile)
    - [Đẩy image lên registry](#Đẩy-image-lên-registry)
+4. [MẠNG VÀ VOLUME](#MẠNG-VÀ-VOLUME)
+   - [Xem danh sách networks](#Xem-danh-sách-networks)
+   - [Tạo network mới](#Tạo-network-mới)
+   - [Tạo volume mới](#Tạo-volume-mới)
+   - [Xem danh sách volumes](#Xem-danh-sách-volumes)
+5. [ DOCKER COMPOSE](#DOCKER-COMPOSE)
+   - [Khởi động các services](#Khởi-động-các-services)
+   - [Dừng và xóa các services](#Dừng-và-xóa-các-services)
+   - [Xem logs của các services](#Xem-logs-của-các-services)
+6. [DỌN DẸP HỆ THỐNG](#DỌN-DẸP-HỆ-THỐNG)
+   - [Xóa tất cả dữ liệu không sử dụng](#Xóa-tất-cả-dữ-liệu-không-sử-dụng)
+   - [Xóa các container đã dừng](#Xóa-các-container-đã-dừng)
+   - [Xóa các image không sử dụng](#Xóa-các-image-không-sử-dụng)
+  ## LỜI KHUYÊN:
+- Luôn nhớ kiểm tra trước khi xóa container/image
+- Sử dụng tags để quản lý versions
+- Backup dữ liệu quan trọng trước khi thao tác
    
 # 1. KHỞI ĐẦU VỚI DOCKER
 ### Kiểm tra phiên bản Docker
@@ -77,4 +94,47 @@ docker build -t <name>:<tag> <path>
 ### Đẩy image lên registry
 ```
 docker push <name>:<tag>
+```
+# MẠNG VÀ VOLUME
+### Xem danh sách networks
+```
+docker network ls
+```
+### Tạo network mới
+```
+docker network create <name>
+```
+### Tạo volume mới
+```
+docker volume create <name>
+```
+### Xem danh sách volumes
+```
+docker volume ls
+```
+# DOCKER COMPOSE
+### Khởi động các services
+```
+docker-compose up
+```
+### Dừng và xóa các services
+```
+docker-compose down
+```
+### Xem logs của các services
+```
+docker-compose logs
+```
+# DỌN DẸP HỆ THỐNG
+### Xóa tất cả dữ liệu không sử dụng
+```
+docker system prune
+```
+### Xóa các container đã dừng
+```
+docker container prune
+```
+### Xóa các image không sử dụng
+```
+docker image prune
 ```
