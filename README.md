@@ -45,7 +45,7 @@ docker run -d <image>
 ```
 docker start/stop <container>
 ```
-### docker start/stop <container>
+### Khởi động lại container
 ```
 docker restart <container>
 ```
