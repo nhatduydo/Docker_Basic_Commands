@@ -13,7 +13,11 @@
    - [Khởi động lại container](#Khởi-động-lại-container)
    - [Xóa container](#Xóa-container)
    - [Truy cập vào terminal của container](#Truy-cập-vào-terminal-của-container)
-   - 
+3. [LÀM VIỆC VỚI IMAGES](#LÀM-VIỆC-VỚI-IMAGES)
+   - [Xem danh sách images](#Xem-danh-sách-images)
+   - [Tải image từ Docker Hub](#Tải-image-từ-Docker-Hub)
+   - [Build image từ Dockerfile](#Build-image-từ-Dockerfile)
+   - [Đẩy image lên registry](#Đẩy-image-lên-registry)
    
 # 1. KHỞI ĐẦU VỚI DOCKER
 ### Kiểm tra phiên bản Docker
@@ -56,4 +60,21 @@ docker rm <container>
 ### Truy cập vào terminal của container
 ```
 docker exec -it <container> /bin/bash
+```
+# 3. LÀM VIỆC VỚI IMAGES
+###  Xem danh sách images
+```
+docker images
+```
+### Tải image từ Docker Hub
+```
+docker pull <image>
+```
+### Build image từ Dockerfile
+```
+docker build -t <name>:<tag> <path>
+```
+### Đẩy image lên registry
+```
+docker push <name>:<tag>
 ```
