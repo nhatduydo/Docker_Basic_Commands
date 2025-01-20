@@ -53,7 +53,7 @@ docker ps
 ```
 docker ps -a
 ```
-# 2. QUẢN LÝ CONTAINER
+# QUẢN LÝ CONTAINER
 ### Chạy một container mới
 ```
 docker run <image>
@@ -78,7 +78,7 @@ docker rm <container>
 ```
 docker exec -it <container> /bin/bash
 ```
-# 3. LÀM VIỆC VỚI IMAGES
+# LÀM VIỆC VỚI IMAGES
 ###  Xem danh sách images
 ```
 docker images
