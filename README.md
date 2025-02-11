@@ -158,6 +158,10 @@ apt update && apt install -y openssh-server
 service ssh start
 passwd  # Đặt mật khẩu cho user root
 ```
+cài đặt trình soạn thảo nano
+```
+apt update && apt install -y nano
+```
 Mở file cấu hình SSH:
 ```
 nano /etc/ssh/sshd_config
