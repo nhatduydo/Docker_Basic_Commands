@@ -241,3 +241,45 @@ Sau đó, chạy lệnh:
 ```
 source ~/.bashrc
 ```
+# thực hiện cài plask test api, postman, post,python 
+Bạn đang chạy container Ubuntu (test-server), vào container này:
+```
+docker exec -it test-server bash
+```
+```
+apt update && apt install -y python3-flask
+```
+kiểm tra phiên bản flask 
+```
+python3 -c "import importlib.metadata; print(importlib.metadata.version('flask'))"
+```
+ Tạo một API Flask trong Docker
+ ```
+nano /app.py
+```
+Thêm đoạn code API đơn giản:
+```
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/post-data', methods=['POST'])
+def post_data():
+    data = request.get_json()
+    return jsonify({"message": "Dữ liệu đã nhận", "data": data}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
+```
+Chạy API trong container:
+```
+python3 /app.py
+```
+Gửi request đến API trong Docker
+Từ máy Windows, mở một cửa sổ terminal mới và chạy lệnh này để lấy IP của container:
+```
+docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" test-server
+```
+```
+172.17.0.2
+```
