@@ -203,3 +203,41 @@ docker exec -it test-server service ssh restart
 ```
 
 
+# login ssh docker 
+Khởi động Docker và kiểm tra container
+```
+docker start test-server
+```
+Vào container:
+```
+docker exec -it test-server bash
+```
+Sau đó, kiểm tra SSH:
+```
+service ssh status
+```
+Nếu SSH chưa chạy, bật nó lên
+```
+service ssh start
+```
+Nếu chưa cài OpenSSH, cài đặt bằng
+```
+apt update && apt install -y openssh-server
+service ssh start
+```
+Thoát khỏi container (exit), rồi thử SSH từ cmd Windows:
+```
+ssh root@localhost -p 2222
+```
+## đổi tên: 
+```
+nano ~/.bashrc
+```
+Thêm dòng này vào cuối file: đổi tên khác nếu muốn
+```
+export PS1="root@myserver:~# "
+```
+Sau đó, chạy lệnh:
+```
+source ~/.bashrc
+```
