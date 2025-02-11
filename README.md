@@ -177,9 +177,29 @@ service ssh restart
 ```
 Kết nối SSH từ máy host
 ```
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' test-server
+exit
+```
+```
+docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" test-server
+```
+lấy được ip 
+```
+172.17.0.2
 ```
 Sau đó, thử kết nối SSH:
 ```
 ssh root@localhost -p 2222
 ```
+```
+ssh root@172.17.0.2
+```
+Nếu không kết nối được, hãy kiểm tra xem cổng SSH có mở không bằng:
+```
+docker exec -it test-server netstat -tlnp | grep sshd
+```
+Hoặc thử restart SSH trong container:
+```
+docker exec -it test-server service ssh restart
+```
+
+
