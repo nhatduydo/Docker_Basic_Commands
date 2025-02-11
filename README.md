@@ -138,3 +138,44 @@ docker container prune
 ```
 docker image prune
 ```
+# test-server
+Chạy một container Ubuntu giả lập server
+```
+docker run -dit --name test-server -p 2222:22 ubuntu
+```
+-d: Chạy container ở chế độ nền.
+-i -t: Cho phép tương tác với container.
+--name test-server: Đặt tên container.
+-p 2222:22: Chuyển tiếp cổng SSH từ container ra máy host (cổng 2222 trên host sẽ kết nối tới cổng 22 trong container).
+
+Sau đó, vào container để cấu hình SSH:
+```
+docker exec -it test-server bash
+```
+Cài đặt OpenSSH Server
+```
+apt update && apt install -y openssh-server
+service ssh start
+passwd  # Đặt mật khẩu cho user root
+```
+Mở file cấu hình SSH:
+```
+nano /etc/ssh/sshd_config
+```
+Tìm dòng: PermitRootLogin prohibit-password
+sửa thành 
+```
+PermitRootLogin yes
+```
+Lưu lại (Ctrl + X → Y → Enter), rồi khởi động lại SSH
+```
+service ssh restart
+```
+Kết nối SSH từ máy host
+```
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' test-server
+```
+Sau đó, thử kết nối SSH:
+```
+ssh root@localhost -p 2222
+```
