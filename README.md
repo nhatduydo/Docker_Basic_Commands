@@ -31,6 +31,8 @@
    - [Xóa tất cả dữ liệu không sử dụng](#Xóa-tất-cả-dữ-liệu-không-sử-dụng)
    - [Xóa các container đã dừng](#Xóa-các-container-đã-dừng)
    - [Xóa các image không sử dụng](#Xóa-các-image-không-sử-dụng)
+  
+7. [tạo linux server](#tạo-linux-server)
   ## LỜI KHUYÊN:
 - Luôn nhớ kiểm tra trước khi xóa container/image
 - Sử dụng tags để quản lý versions
@@ -276,10 +278,60 @@ Chạy API trong container:
 python3 /app.py
 ```
 Gửi request đến API trong Docker
-Từ máy Windows, mở một cửa sổ terminal mới và chạy lệnh này để lấy IP của container:
+Từ máy Windows, mở một cửa sổ terminal mới và chạy lệnh này để lấy IP của container
 ```
 docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" test-server
 ```
 ```
 172.17.0.2
+```
+# tạo linux server
+```
+docker version
+```
+```
+docker pull ubuntu:latest
+```
+Chạy container Ubuntu
+```
+docker run -it --name my-linux-server ubuntu:latest /bin/bash
+```
+Cập nhật danh sách package
+```
+apt update && apt upgrade -y
+```
+Lệnh ping chưa được cài đặt trong container Ubuntu. Bạn có thể cài đặt nó bằng cách chạy
+```
+apt install iputils-ping -y
+```
+Sau khi cài đặt xong, thử lại lệnh
+```
+ping -c 4 google.com
+```
+ Cài đặt các công cụ cần thiết
+ ```
+apt install curl wget nano net-tools htop -y
+```
+Kiểm tra thông tin hệ thống
+```
+cat /etc/os-release && uname -r
+```
+Kiểm tra địa chỉ IP của container
+```
+ifconfig
+```
+Chạy một server đơn giản trong container
+```
+apt install python3 -y
+```
+ Chạy server HTTP
+```
+python3 -m http.server 8080 --bind 0.0.0.0
+```
+Đổi hostname
+```
+echo "nhatduy" > /etc/hostname
+```
+```
+python3 -m http.server 8080 --bind 0.0.0.0
 ```
