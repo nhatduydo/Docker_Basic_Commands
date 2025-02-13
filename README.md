@@ -335,3 +335,8 @@ echo "nhatduy" > /etc/hostname
 ```
 python3 -m http.server 8080 --bind 0.0.0.0
 ```
+Kiểm tra truy cập từ Windows
+```
+apt update && apt install -y curl
+```
+
