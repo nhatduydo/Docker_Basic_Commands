@@ -339,4 +339,38 @@ Kiểm tra truy cập từ Windows
 ```
 apt update && apt install -y curl
 ```
+## tạo ubuntu server
+```
+docker --version
+```
+Chạy lệnh sau để tạo một container Ubuntu
+```
+docker run -dit --name ubuntu-server ubuntu:latest
+```
+Sau đó, kết nối vào container:
+```
+docker exec -it ubuntu-server bash
+```
+Cập nhật hệ thống
+```
+apt update && apt upgrade -y
+```
+Cài đặt SSH Server
+```
+apt install openssh-server -y
+```
+```
+service ssh start
+```
+Cài đặt giao diện 
+Tên GUI	Nhẹ hay Nặng	Lệnh cài đặt
+GNOME (Mặc định của Ubuntu Desktop)	Nặng	apt install ubuntu-desktop -y
+Xfce (Nhẹ hơn GNOME)	Trung bình	apt install xfce4 -y
+LXDE (Rất nhẹ)	Nhẹ nhất	apt install lxde -y
+KDE Plasma (Đẹp nhưng nặng)	Nặng	apt install kde-plasma-desktop -y
+
+ở đây sẽ thử cài giao diện mặc đinh 
+```
+apt install ubuntu-desktop -y
+```
 
