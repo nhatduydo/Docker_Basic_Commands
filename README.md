@@ -375,4 +375,14 @@ KDE Plasma (Đẹp nhưng nặng)	Nặng	apt install kde-plasma-desktop -y
 ```
 apt install ubuntu-desktop -y
 ```
-
+Cài VNC Server
+```
+apt install tigervnc-standalone-server -y
+```
+```
+vncpasswd
+```
+Would you like to enter a view-only password (y/n)? n
+```
+1 -geometry 1280x720 -depth 24
+```
