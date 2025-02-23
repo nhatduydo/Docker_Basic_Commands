@@ -339,7 +339,9 @@ Kiểm tra truy cập từ Windows
 ```
 apt update && apt install -y curl
 ```
-## tạo ubuntu server
+
+
+# tạo ubuntu server
 ```
 docker --version
 ```
